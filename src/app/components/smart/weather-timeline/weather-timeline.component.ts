@@ -16,11 +16,12 @@ export class WeatherTimelineComponent implements OnInit {
   private doCitySearch$ = new BehaviorSubject<string>('');
   private doForecastSearch$ = new BehaviorSubject<ICityToForecast>({} as ICityToForecast);
 
-  constructor(private locationService: WeatherService) { }
+  constructor(private weatherService: WeatherService) { }
+
   ngOnInit(): void {
     this.citySearchResult$ = this.doCitySearch$.pipe(
       switchMap((search: string) => {
-        return this.locationService.searchCity(search).pipe(
+        return this.weatherService.searchCity(search).pipe(
           map((result: ICitiesResponse) => {
             return {
               list: result.list.map((item: ICityDetails) => {
@@ -36,11 +37,12 @@ export class WeatherTimelineComponent implements OnInit {
         )
       })
     );
-      this.weatherResults$ = this.doForecastSearch$.pipe(
-        switchMap((cityToForecast: ICityToForecast) => {
-          return this.locationService.getCityForecast(cityToForecast);
-        })
-      )
+
+    this.weatherResults$ = this.doForecastSearch$.pipe(
+      switchMap((cityToForecast: ICityToForecast) => {
+        return this.weatherService.getCityForecast(cityToForecast);
+      })
+    )
   }
   onSearchCity(search: string): void {
     this.doCitySearch$.next(search);

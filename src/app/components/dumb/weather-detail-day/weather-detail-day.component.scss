@@ -1,0 +1,32 @@
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  & .summary {
+    min-width: 10rem;
+  }
+
+  & .max-temp,
+  .min-temp,
+  .max-wind,
+  .total-precip {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    white-space: nowrap;
+    width: 85%;
+
+    & span {
+      font-weight: normal;
+      font-size: 1.1rem;
+      color: white;
+    }
+  }
+
+  & h2 {
+    white-space: nowrap;
+    color: white;
+  }
+}

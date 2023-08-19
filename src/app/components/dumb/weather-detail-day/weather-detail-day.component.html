@@ -1,0 +1,14 @@
+<ng-container *ngIf="weather$ | async as weather">
+  <section class="day-cell">
+    <h2 class="day">{{weather.date}}</h2>
+    <div class="icon">
+      <img [src]="weather.condition.icon">
+    </div>
+    <div class="summary">
+      <div class="max-temp">Max: <span>{{weather.maxTempC}} °C</span></div>
+      <div class="min-temp">Min: <span>{{weather.minTempC}} °C</span></div>
+      <div class="max-wind">Wind: <span>{{weather.maxWindKph}} km/h</span></div>
+      <div class="total-precip">Precip: <span>{{weather.totalPrecipMm}} mm</span></div>
+    </div>
+  </section>
+</ng-container>

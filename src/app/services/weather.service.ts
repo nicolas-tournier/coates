@@ -66,7 +66,6 @@ export class WeatherService {
   constructor(private weatherApiService: WeatherApiService) { }
 
   searchCity(citySearchString: string): Observable<ICitiesResponse> {
-
     if(!citySearchString) {
       return of({ list: [] } as ICitiesResponse);
     }
@@ -81,7 +80,6 @@ export class WeatherService {
     }
     const _cityToForecast: IApiCityToForecastRequest = { ...cityToForecast,  days: this.daysToForecast};
     return this.weatherApiService.getForecast(_cityToForecast).pipe(
-      tap((data: any) => console.log(data)),
       map((data: any) => data as ICityForecastResponse)
     )
   }

@@ -29,7 +29,6 @@ export interface IDailyForecastConditions {
   avgTempC: number,
   maxWindKph: number,
   totalPrecipMm: number,
-  avgHumidity: number,
   condition: {
     text: string,
     icon: string,

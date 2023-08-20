@@ -1,4 +1,4 @@
-<div class="weather-details" *ngIf="(weatherData$ | async).requestId">
+<div class="weather-details" *ngIf="(weatherData$ | async)?.requestId">
   <div class="current-conditions" *ngIf="(currentConditions$ | async) as current">
     <div class="summary-icon">
       <img [src]="current.condition.icon">

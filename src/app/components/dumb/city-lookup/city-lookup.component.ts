@@ -46,4 +46,8 @@ export class CityLookupComponent implements OnInit {
   onCitySelected(location: ILookupCityDetails): void {
     this.onSelectedCityName.emit(location);
   }
+
+  clearInput(): void {
+    this.cityLookupFormGroup.get('cityInputString').setValue('');
+  }
 }

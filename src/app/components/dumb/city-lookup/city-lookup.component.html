@@ -2,7 +2,8 @@
   <form [formGroup]="cityLookupFormGroup">
     <div class="card flex justify-content-center">
       <p-autoComplete formControlName="cityInputString" [suggestions]="(citySearchResult$ | async)?.list" [field]="'location'"
-        (completeMethod)="searchCity($event)" (onSelect)="onCitySelected($event)" field="name" [placeholder]="'City Name'"></p-autoComplete>
+        (completeMethod)="searchCity($event)" (onSelect)="onCitySelected($event)" field="name" [placeholder]="'City Name'" [showClear]="true">
+      </p-autoComplete>
     </div>
   </form>
 </ng-container>

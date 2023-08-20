@@ -1,6 +1,6 @@
 <div class="timeline">
-  <h1>Your Weather</h1>
+  <h1>Coates Weather Service</h1>
   <app-city-lookup [citySearchResult$]="citySearchResult$" (onSearchCity)="onSearchCity($event)" (onSelectedCityName)="onCitySelected($event)"></app-city-lookup>
   <app-weather-detail [weather$]="weatherResults$"></app-weather-detail>
-  <footer>Powered by Coates</footer>
+  <footer>Powered by WeatherApi</footer>
 </div>

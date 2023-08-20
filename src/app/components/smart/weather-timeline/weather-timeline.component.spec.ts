@@ -9,7 +9,9 @@ describe('WeatherTimelineComponent', () => {
 
   let component: WeatherTimelineComponent;
   let fixture: ComponentFixture<WeatherTimelineComponent>;
+
   const search = 'City';
+
   const city = {
     location: 'City, Region',
     id: 1,
@@ -90,7 +92,7 @@ describe('WeatherTimelineComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should populate citySearchResult$ when doCitySearch$ fires', () => {
+  it('should correctly populate citySearchResult$ when onSearchCity is called', () => {
     weatherService.searchCity.and.returnValue(of(citiesResponse));
     component.onSearchCity(search);
     component.citySearchResult$.subscribe((result: ICitySearchResult) => {
@@ -114,7 +116,7 @@ describe('WeatherTimelineComponent', () => {
   });
 
 
-  it('should populate weatherResults$ when doForecastSearch is called', () => {
+  it('should correctly populate weatherResults$ when onCitySelected is called', () => {
     weatherService.getCityForecast.and.returnValue(of(forecastResponse));
     component.onCitySelected(city);
     component.weatherResults$.subscribe((result: ICityForecastResponse) => {

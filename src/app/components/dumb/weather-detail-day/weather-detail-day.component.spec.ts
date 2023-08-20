@@ -3,7 +3,7 @@ import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
 import { IDailyConditions, WeatherDetailDayComponent } from './weather-detail-day.component';
 
-fdescribe('WeatherDetailDayComponent', () => {
+describe('WeatherDetailDayComponent', () => {
   let component: WeatherDetailDayComponent;
   let fixture: ComponentFixture<WeatherDetailDayComponent>;
 

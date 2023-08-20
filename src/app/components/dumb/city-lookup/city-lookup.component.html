@@ -1,7 +1,4 @@
 <ng-container>
-  <div *ngFor="let location of (locations$ | async)">
-    {{location}}
-  </div>
   <form [formGroup]="cityLookupFormGroup">
     <div class="card flex justify-content-center">
       <p-autoComplete formControlName="cityInputString" [suggestions]="(citySearchResult$ | async)?.list" [field]="'location'"

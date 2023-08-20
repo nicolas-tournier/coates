@@ -30,8 +30,6 @@ export class CityLookupComponent implements OnInit {
   @Output() onSearchCity = new EventEmitter<string>();
   @Output() onSelectedCityName = new EventEmitter<ILookupCityDetails>();
 
-  locations$ = new BehaviorSubject<Array<string>>([]);
-
   cityLookupFormGroup: FormGroup;
 
   ngOnInit(): void {

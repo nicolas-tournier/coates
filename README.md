@@ -21,6 +21,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 - Background
 
+** Please use master branch **
+
 This app uses WeatherApi at https://www.weatherapi.com/, and makes use of my trial ApiKey. Feel free to replace with your own key which you'll find in the environment files at the root of the project.
 
 This took a lot longer than a few hours. Much of it was written while I was recovering from Surgery and under the influence of powerful painkillers.

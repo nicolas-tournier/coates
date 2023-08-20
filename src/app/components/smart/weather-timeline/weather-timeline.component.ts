@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ICitiesResponse, ICityDetails, ICityToForecast, WeatherService } from 'src/app/services/weather.service';
+import { ICitiesResponse, ICityDetails, ICityForecastResponse, ICityToForecast, WeatherService } from 'src/app/services/weather.service';
 import { BehaviorSubject, map, switchMap, of, Observable } from 'rxjs';
 import { ICitySearchResult, ILookupCityDetails } from '../../dumb/city-lookup/city-lookup.component';
 
@@ -11,7 +11,7 @@ import { ICitySearchResult, ILookupCityDetails } from '../../dumb/city-lookup/ci
 export class WeatherTimelineComponent implements OnInit {
 
   citySearchResult$: Observable<ICitySearchResult> = of({ list: [] } as ICitySearchResult);
-  weatherResults$: Observable<any> = of({} as any);
+  weatherResults$: Observable<ICityForecastResponse> = of({} as ICityForecastResponse);
 
   private doCitySearch$ = new BehaviorSubject<string>('');
   private doForecastSearch$ = new BehaviorSubject<ICityToForecast>({} as ICityToForecast);

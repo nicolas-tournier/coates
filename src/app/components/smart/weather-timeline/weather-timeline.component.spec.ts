@@ -44,6 +44,7 @@ describe('WeatherTimelineComponent', () => {
 
   const forecastResponse: ICityForecastResponse = {
     requestId: 1,
+    location: 'City, Country',
     current: {
       tempC: 1,
       feelsLikeC: 1,
@@ -128,6 +129,7 @@ describe('WeatherTimelineComponent', () => {
     component.weatherResults$.subscribe((result: ICityForecastResponse) => {
       expect(result).toEqual({
         requestId: 1,
+        location: 'City, Country',
         current: {
           tempC: 1,
           feelsLikeC: 1,

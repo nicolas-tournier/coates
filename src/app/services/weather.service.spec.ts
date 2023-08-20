@@ -42,7 +42,7 @@ describe('WeatherService', () => {
   });
 
   it('should call WeatherApiService.getForecast with correct city details', () => {
-    const cityToForecast: ICityToForecast = { id: 1, lat: 51.5074, lon: 0.1278 };
+    const cityToForecast: ICityToForecast = { id: 1, location: 'London', lat: 51.5074, lon: 0.1278 };
     const daysToForecast = 5;
     mockWeatherApiService.getForecast.and.returnValue(of({} as ICityForecastResponse));
     service.getCityForecast(cityToForecast).subscribe();

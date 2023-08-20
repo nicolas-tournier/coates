@@ -4,6 +4,7 @@ import { IDailyConditions } from '../weather-detail-day/weather-detail-day.compo
 
 export interface ICityForecast {
   requestId: number,
+  location: string,
   current: ICurrentConditions,
   forecast: Array<IDailyForecastConditions>
 }
@@ -59,7 +60,7 @@ export class WeatherDetailComponent implements OnInit {
       filter((data: ICityForecast) => Object.keys(data).length > 0),
       map((data: ICityForecast) => {
         const current = {
-          ...data.current, date: this.formatDate(data.current.lastUpdated)
+          ...data.current, lastUpdated: `${this.formatDate(data.current.lastUpdated)}, ${new Date(data.current.lastUpdated).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}`,
         }
         return current;
       })

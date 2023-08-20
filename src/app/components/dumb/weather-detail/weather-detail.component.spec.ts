@@ -10,6 +10,7 @@ describe('WeatherDetailComponent', () => {
 
   const mockData = {
     requestId: 123,
+    location: 'Sydney, Australia',
     current: {
       tempC: 20,
       feelsLikeC: 18,
@@ -95,6 +96,7 @@ describe('WeatherDetailComponent', () => {
   it('should render forecast conditions', () => {
     const mockData: ICityForecast = {
       requestId: 123,
+      location: 'Sydney, Australia',
       current: {
         tempC: 20,
         feelsLikeC: 18,

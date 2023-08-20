@@ -1,19 +1,22 @@
 <div class="weather-details" *ngIf="(weatherData$ | async)?.requestId">
-  <div class="current-conditions" *ngIf="(currentConditions$ | async) as current">
-    <div class="summary-icon">
-      <img [src]="current.condition.icon">
-      <span>{{current.condition.text}}</span>
+  <section class="summary" *ngIf="(currentConditions$ | async) as current">
+    <div class="current-conditions">
+      <div class="summary-icon">
+        <img [src]="current.condition.icon">
+        <span>{{current.condition.text}}</span>
+      </div>
+      <div class="conditions-summary">
+        <div class="current-temp">Temp: <span>{{current.tempC}} °C</span></div>
+        <div class="feels-like">Feels like: <span>{{current.feelsLikeC}} °C</span></div>
+        <div class="wind">Wind: <span>{{current.windKph}} °C</span></div>
+        <div class="precip">Precip: <span>{{current.precipMm}} mm</span></div>
+        <div class="updated">Updated: <span>{{current.lastUpdated}}</span></div>
+      </div>
     </div>
-    <div class="summary">
-      <div class="current-temp">Temp: <span>{{current.tempC}} °C</span></div>
-      <div class="feels-like">Feels like: <span>{{current.feelsLikeC}} °C</span></div>
-      <div class="wind">Wind: <span>{{current.windKph}} °C</span></div>
-      <div class="precip">Precip: <span>{{current.precipMm}} mm</span></div>
-      <div class="updated">Updated: <span>{{current.lastUpdated}}</span></div>
-    </div>
-  </div>
-  <div class="weather-detail">
+    <div class="location">{{(weatherData$ | async)?.location}}</div>
+  </section>
+  <section class="weather-detail">
     <app-weather-detail-day class="daily" *ngFor="let daily$ of (dailyResults$ | async)"
       [weather$]="daily$"></app-weather-detail-day>
-  </div>
+  </section>
 </div>

@@ -17,12 +17,14 @@ export interface ICityDetails {
 
 export interface ICityToForecast {
   id: number,
+  location: string,
   lat: number,
   lon: number
 }
 
 export interface ICityForecastResponse {
   requestId: number,
+  location: string,
   current: ICurrentConditionsResponse,
   forecast: Array<IDailyForecastConditionsResponse>
 }
@@ -80,7 +82,7 @@ export class WeatherService {
     }
     const _cityToForecast: IApiCityToForecastRequest = { ...cityToForecast,  days: this.daysToForecast};
     return this.weatherApiService.getForecast(_cityToForecast).pipe(
-      map((data: any) => data as ICityForecastResponse)
+      map((data: any) => ({...data, location: cityToForecast.location}) as ICityForecastResponse)
     )
   }
 }

@@ -2,8 +2,10 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { WeatherTimelineComponent } from './weather-timeline.component';
 import { ICitiesResponse, ICityForecastResponse, WeatherService } from 'src/app/services/weather.service';
 import { of } from 'rxjs';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ICitySearchResult } from '../../dumb/city-lookup/city-lookup.component';
+import { CityLookupModule } from '../../dumb/city-lookup/city-lookup.module';
+import { WeatherDetailModule } from '../../dumb/weather-detail/weather-detail.module';
+import { WeatherDetailDayModule } from '../../dumb/weather-detail-day/weather-detail-day.module';
 
 describe('WeatherTimelineComponent', () => {
 
@@ -81,7 +83,11 @@ describe('WeatherTimelineComponent', () => {
       providers: [
         { provide: WeatherService, useValue: weatherService },
       ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+      imports: [
+        CityLookupModule,
+        WeatherDetailModule,
+        WeatherDetailDayModule
+      ]
     });
     fixture = TestBed.createComponent(WeatherTimelineComponent);
     component = fixture.componentInstance;

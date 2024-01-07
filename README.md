@@ -6,8 +6,6 @@ https://github.com/nicolas-tournier/coates.git
 
 ## Instructions
 
-** Please use master branch **
-
 To begin: npm install
 Serve with: npm serve
 Test with: ng test
